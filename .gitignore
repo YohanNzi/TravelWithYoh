@@ -64,3 +64,5 @@ yarn-error.log
 
 # testing
 /coverage
+__tests__/App.test.tsx
+.bundle/config
