@@ -1,0 +1,15 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-travelwithyoh-staging-02044-authRole",
+      "UnauthRoleArn": "arn:aws:iam::045148265306:role/amplify-travelwithyoh-staging-02044-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::045148265306:role/amplify-travelwithyoh-staging-02044-authRole",
+      "Region": "eu-west-3",
+      "DeploymentBucketName": "amplify-travelwithyoh-staging-02044-deployment",
+      "UnauthRoleName": "amplify-travelwithyoh-staging-02044-unauthRole",
+      "StackName": "amplify-travelwithyoh-staging-02044",
+      "StackId": "arn:aws:cloudformation:eu-west-3:045148265306:stack/amplify-travelwithyoh-staging-02044/bc314b10-4081-11ee-8602-0ede3bcd6454",
+      "AmplifyAppId": "dymdrmortyhdj"
+    }
+  }
+}

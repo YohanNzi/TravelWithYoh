@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import Card from '../components/TravelCard';
-import users from '../../assets/data/users';
+import locations from '../../assets/data/locations';
 
 import AnimatedStack from '../components/AnimatedStack';
 
@@ -10,19 +10,19 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const HomeScreen = () => {
-  const onSwipeLeft = user => {
-    console.warn('swipe left', user.name);
+  const onSwipeLeft = location => {
+    console.warn('swipe left', location.name);
   };
 
-  const onSwipeRight = user => {
-    console.warn('swipe right: ', user.name);
+  const onSwipeRight = location => {
+    console.warn('swipe right: ', location.name);
   };
 
   return (
     <View style={styles.pageContainer}>
       <AnimatedStack
-        data={users}
-        renderItem={({item}) => <Card user={item} />}
+        data={locations}
+        renderItem={({item}) => <Card location={item} />}
         onSwipeLeft={onSwipeLeft}
         onSwipeRight={onSwipeRight}
       />

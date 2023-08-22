@@ -115,20 +115,20 @@ const AnimatedStack = props => {
       {currentProfile && (
         <PanGestureHandler onGestureEvent={gestureHandler}>
           <Animated.View style={[styles.animatedCard, cardStyle]}>
-          <Animated.View style={[styles.likeContainer]}>
+            <Animated.View style={[styles.likeContainer]}>
+                <Animated.Image
+                  source={Like}
+                  style={[styles.like, {left: 10}, likeStyle]}
+                  resizeMode="contain"
+                />
+            </Animated.View>
+            <Animated.View style={[styles.nopeContainer]}>
               <Animated.Image
-                source={Like}
-                style={[styles.like, {left: 10}, likeStyle]}
+                source={Nope}
+                style={[styles.nope, {right: 10}, nopeStyle]}
                 resizeMode="contain"
               />
-          </Animated.View>
-          <Animated.View style={[styles.nopeContainer]}>
-            <Animated.Image
-              source={Nope}
-              style={[styles.nope, {right: 10}, nopeStyle]}
-              resizeMode="contain"
-            />
-          </Animated.View>
+            </Animated.View>
             {renderItem({item: currentProfile})}
           </Animated.View>
         </PanGestureHandler>

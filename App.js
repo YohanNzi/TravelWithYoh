@@ -2,7 +2,7 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import {View, StyleSheet, SafeAreaView, Pressable } from 'react-native';
 import Card from './src/components/TravelCard';
-import users from './assets/data/users';
+import locations from './assets/data/locations';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import AnimatedStack from './src/components/AnimatedStack';
@@ -12,8 +12,15 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
+import { Amplify } from 'aws-amplify';
+import { withAuthenticator } from 'aws-amplify-react-native';
+import config from './src/aws-exports';
+
 import HomeScreen from './src/screens/HomeScreen';
 import MatchesScreen from './src/screens/MatchesScreen';
+import ProfileScreen from './src/screens/ProfileScreen';
+
+Amplify.configure(config);
 
 const App = () => {
   const [activeScreen, setActiveScreen] = React.useState('HOME');
@@ -32,17 +39,15 @@ const App = () => {
               <Pressable onPress={() => setActiveScreen('CHAT')}>
                 <Ionicons name="ios-chatbubbles" size={24} color={activeScreen === 'CHAT' ? activeColor : color} />
               </Pressable>
-              <FontAwesome name="user" size={24} color={color} />
+              <Pressable onPress={() => setActiveScreen('PROFILE')}>
+                <FontAwesome name="user" size={24} color={activeScreen === 'PROFILE' ? activeColor : color} />
+              </Pressable>
             </View>
 
-            {activeScreen === 'HOME' && <HomeScreen />}
-            {activeScreen === 'CHAT' && <MatchesScreen />}
-        {/* <HomeScreen /> */
-        /* <Card user={users[0]} /> */
-        /* <Card user={users[1]} /> */
-        /* <Card user={users[2]} /> */
-        /* <Card user={users[3]} /> */
-        /* <Card user={users[4]} /> */}
+            activeScreen === 'HOME' && <HomeScreen />
+            activeScreen === 'CHAT' && <MatchesScreen />
+            activeScreen === 'CHAT' && <ProfileScreen />
+
           </View>
       </GestureHandlerRootView>
     </SafeAreaView>
@@ -68,4 +73,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+//export default App;
+export default withAuthenticator(App);

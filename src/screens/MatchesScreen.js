@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, SafeAreaView, Image} from 'react-native';
-import users from '../../assets/data/users';
+import locations from '../../assets/data/locations';
 
 const MatchesScreen = () => {
   return (
@@ -9,10 +9,10 @@ const MatchesScreen = () => {
         <Text style={{fontWeight: 'bold', fontSize: 24, color: '#F63A6E'}}>
           New Matches
         </Text>
-        <View style={styles.users}>
-          {users.map(user => (
-            <View style={styles.user} key={user.id}>
-              <Image source={{uri: user.image}} style={styles.image} />
+        <View style={styles.locations}>
+          {locations.map(location => (
+            <View style={styles.location} key={location.id}>
+              <Image source={{uri: location.image}} style={styles.image} />
             </View>
           ))}
         </View>
