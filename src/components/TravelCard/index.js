@@ -53,6 +53,11 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
   },
+  location: {
+    fontSize: 22,
+    color: 'white',
+    fontWeight: 'bold',
+  },
   bio: {
     fontSize: 18,
     color: 'white',

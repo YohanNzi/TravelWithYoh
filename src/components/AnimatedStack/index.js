@@ -115,16 +115,20 @@ const AnimatedStack = props => {
       {currentProfile && (
         <PanGestureHandler onGestureEvent={gestureHandler}>
           <Animated.View style={[styles.animatedCard, cardStyle]}>
-            <Animated.Image
-              source={Like}
-              style={[styles.like, {left: 10}, likeStyle]}
-              resizeMode="contain"
-            />
+          <Animated.View style={[styles.likeContainer]}>
+              <Animated.Image
+                source={Like}
+                style={[styles.like, {left: 10}, likeStyle]}
+                resizeMode="contain"
+              />
+          </Animated.View>
+          <Animated.View style={[styles.nopeContainer]}>
             <Animated.Image
               source={Nope}
-              style={[styles.like, {right: 10}, nopeStyle]}
+              style={[styles.nope, {right: 10}, nopeStyle]}
               resizeMode="contain"
             />
+          </Animated.View>
             {renderItem({item: currentProfile})}
           </Animated.View>
         </PanGestureHandler>
@@ -152,13 +156,28 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  like: {
+  likeContainer: {
     width: 150,
     height: 150,
     position: 'absolute',
     top: 10,
     zIndex: 1,
     elevation: 1,
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+  },
+  nopeContainer: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    zIndex: 1,
+    elevation: 1,
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
   },
 });
 
